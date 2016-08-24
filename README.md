@@ -37,7 +37,7 @@ The repository also contains a little web editor, which allows collaborative wor
  
 `tables` is an array of tables. Each table contains phrases for a specific language. A table has a tree-like structure, that can be defined recursively: a table is an array of nodes; a node is either `null`, a string or an array of nodes.
 
-We can refer to each phrase in a table using a path: an array of indices of nested arrays containing specific string (starting from 0). In the previous example, the word "Loading" has a path `[1]`. The word "Blue" has a path `[2,2]`. You can use paths to refer to phrases from your software, without refering to specific table (specific language of the phrase).
+We can refer to each phrase in a table using a path: an array of indices of nested arrays containing specific string (counting from 0). In the previous example, the word "Loading" has a path `[1]`. The word "Blue" has a path `[2,2]`. You can use paths to refer to phrases from your software, without refering to specific table (specific language of the phrase).
 
 When multiple tables contain phrases for a specific path, all these phrases must have the same "meaning" (in different languages). So, when you want to relocate a phrase, you must do it in all tables.
 
