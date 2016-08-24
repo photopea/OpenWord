@@ -1,8 +1,8 @@
 # OpenWord
 
-OpenWord is a JSON file format for storing localizations. It has specific structure, which is described below.
+OpenWord is a JSON file format for storing localizations. It was created with an idea of collaborative translation.
 
-It also contains a little web editor, which allows collaborative creation of localization files. You can let your users from across the globe translate your software. Demo: [Photopea Translation](https://www.photopea.com/translate/).
+The repository also contains a little web editor, which allows collaborative work on localization files. You can let your users from across the globe translate your software. Demo: [Photopea Translation](https://www.photopea.com/translate/).
 
 ## Example
 
@@ -28,6 +28,7 @@ It also contains a little web editor, which allows collaborative creation of loc
     ],
     []
   ]
+}
 ```
 `langs` is an array of languages, that are represented in the file. 
 * `name` is the name of the language
