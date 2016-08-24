@@ -1,0 +1,22 @@
+{ 
+  "langs": [
+    { "name": "English", "code": "en", "table": 0 },
+    { "name": "Česky",   "code": "cs", "table": 1 },
+    { "name": "Español", "code": "es", "table": 2 }
+  ],
+  "tables": [
+    [
+      "Welcome",
+      "Loading",
+      ["Black", "Red", "Blue"],
+      "Exit"
+    ],
+    [
+      "Vítejte",
+      null,
+      ["Černá", "Červená", "Modrá"],
+      "Ukončit"
+    ],
+    []
+  ]
+}

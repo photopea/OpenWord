@@ -1,0 +1,253 @@
+<html>
+<head>
+		<meta charset="utf-8" />
+		<title>Translate</title>
+		
+		<style type="text/css">
+			body {
+				font-family:sans-serif;
+				background-color: #ceedf4;
+				margin:0;
+				padding:0;
+				line-height:1.6em;
+				color: rgb(51, 51, 51);
+			}
+			h1 {
+				font-size: 3em;
+				margin: 0;
+				padding: 0.7em;
+				color:#ffffff;
+				text-align:center;
+				background-image: linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231));
+			}
+			h2 { 
+				font-size: 1.8em;
+				margin-top:1em; 
+				margin-bottom: 0.6em;
+				padding-bottom: 0.4em;
+				border-bottom-color: rgb(238, 238, 238);
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+			}
+			h3 { margin-top:1.0em; margin-bottom: 0.5em;}  
+			p  { margin: 0 0 1em 0;}
+			.main {
+				margin:0 auto;
+				max-width: 60em;
+				
+				padding:0.5em 2em;
+				background-color: #ffffff;
+			}
+			#langcont span {
+				padding: 0.15em 0.5em;
+				margin: 0.3em;
+				border-radius:0.5em;
+				cursor:pointer;
+				color:#fff;
+				font-weight:bold;
+				display:inline-block;
+			}
+			#tsource, #tword {
+				font-size: 1.5em;
+			}
+			button {
+				font-size: 1.5em;
+				margin: 0.5em 0.5em 0 0;
+			}
+		</style>
+	
+	<script type="text/javascript">
+	
+		var file;
+		var lang = 0;
+		var cword = 0;
+		var plists;
+		
+		function load(path, resp)
+		{
+			var request = new XMLHttpRequest();
+			request.open("GET", path, true);
+			//request.responseType = "arraybuffer";
+			request.onload = function(e){resp(e.target.response);};
+			request.send();
+		}
+		
+		function go() {  
+			load("versions/file.json"+"?rnd="+Math.random(), fileLoaded);	// overcoming cache
+		}
+		function fileLoaded(e)
+		{
+			if(e) file = JSON.parse(e);
+			
+			var wcnt = [];
+			plists = [[]];
+			var mainpl = plists[0];
+			getPList(file.tables[0], mainpl, []);
+			wcnt.push(mainpl.length);
+			
+			for(var i=1; i<file.tables.length; i++)
+			{
+				var pl = [];  plists.push(pl);
+				var cnt = 0;
+				for(var j=0; j<mainpl.length; j++)
+				{
+					var mainw = mainpl[j];
+					var wrd = getWord(mainw.path, file.tables[i]);
+					pl.push( {str:wrd, path:mainw.path} );
+					if(wrd!=null) cnt++;
+				}
+				wcnt.push(cnt);
+			}
+			
+			var lcont = document.getElementById("langcont");
+			lcont.innerHTML = "";
+		
+			var clang;
+			for(var i=0; i<file.langs.length; i++)
+			{
+				var lng = file.langs[i];
+				var el = document.createElement("span");
+				var frac = wcnt[lng.table] / wcnt[0];
+				el.innerText = lng.name + " (" + Math.round( 100 * frac ) + " %)";
+				var clr = [Math.round(frac*0 + (1-frac)*230),  Math.round(frac*200 + (1-frac)*0),0];
+				el.setAttribute("style", "background-color: rgb("+clr.join(",")+");" +   (lng.table==lang ? "box-shadow: 0px 0px 10px #000;" : "")  );
+				if(lang==lng.table) clang = lng;
+				el.lang = lng.table;
+				lcont.appendChild(el);
+				el.addEventListener("click", langClick, false);
+			}
+			
+			var phnum = document.getElementById("phrasenum");
+			phnum.innerText = "Phrase "+ (cword+1) + " / " + mainpl.length;
+			
+			var tsource = document.getElementById("tsource");
+			tsource.innerText = plists[0][cword].str;
+			
+			var tlang = document.getElementById("tlang");
+			tlang.innerText = clang.name+":";
+			
+			var tword = document.getElementById("tword");
+			tword.value = plists[lang][cword].str == null ? "" : plists[lang][cword].str;
+			
+			document.body.setAttribute("style", "opacity:1.0;");
+		}
+		
+		function langClick(e)
+		{
+			lang = e.target.lang;
+			fileLoaded();
+		}
+		
+		function getPList(tab, list, cp)
+		{
+			if(typeof tab == "string") {  list.push({ str:tab, path:cp.slice(0) });  return; }
+			for(var i=0; i<tab.length; i++)
+			{
+				cp.push(i);
+				getPList(tab[i], list, cp);
+				cp.pop();
+			}
+		}
+		function getWord(path, tab)
+		{
+			for(var i=0; i<path.length; i++)
+			{
+				tab  = tab[path[i]];
+				if(tab==null) return null;
+			}
+			return tab;
+		}
+		function setWord(w, path, tab)
+		{
+			for(var i=0; i<path.length-1; i++)  tab  = tab[path[i]];
+			return tab[path[path.length-1]] = w;
+		}
+		function tryClear(tab)
+		{
+			if(tab==null) return null;
+			if(typeof tab == "string") return tab;
+			
+			for(var i=tab.length-1; i>=0; i--)
+			{
+				var nval = tryClear(tab[i]);
+				if(nval==null) tab.pop();
+				else return tab;
+			}
+			return null;
+		}
+		
+		function prev() {  cword = (cword-1+plists[0].length)%plists[0].length;  fileLoaded();  }
+		function next() {  cword = (cword+1+plists[0].length)%plists[0].length;  fileLoaded();  }
+		function save() {
+		
+			var nword = document.getElementById("tword").value.trim();
+			if(nword=="") nword = null;
+			if(nword==plists[lang][cword].str) return;
+			plists[lang][cword].str = nword;
+			
+			var nfile = {};
+			nfile.langs = file.langs;
+			nfile.tables = [];
+			for(var i=0; i<file.tables.length; i++)
+			{
+				var ntab = JSON.parse(JSON.stringify(file.tables[0]));  
+				for(var j=0; j<plists[0].length; j++)  
+					setWord(plists[i][j].str,  plists[i][j].path, ntab)
+				var nntab = tryClear(ntab);
+				nfile.tables.push(ntab);
+			}
+			
+			var xhr = new XMLHttpRequest();
+			var params = "p="+  encodeURIComponent(JSON.stringify(nfile, null, "\t"));
+			xhr.open("POST", "saveFile.php", true);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.addEventListener("load" , saved );
+			xhr.send(params);
+			document.body.setAttribute("style", "opacity:0.4;");
+		}
+		function saved(e)
+		{
+			console.log("Data sent to server. Response: " + e.target.response);
+			fmi(false);
+			go();
+		}
+		function fmi(showAlert) 
+		{
+			var clang;
+			for(var i=0; i<file.langs.length; i++) if(file.langs[i].table==lang) clang = file.langs[i];
+		
+			var cpl = plists[lang];
+			var ncw = -1;
+			for(var i=0; i<cpl.length; i++) if(cpl[i].str==null) {  ncw=i;  break;  }
+			if(ncw==-1) {  if(showAlert) alert("No phrases missing in "+clang.name);  }
+			else {  cword = ncw;  fileLoaded();  }
+		}
+		
+	</script>
+</head>
+<body onload="go();">
+
+	<h1>Translation</h1>
+		
+<div class="main">	
+
+	<h2>Choose the language</h2>
+	
+	<div id="langcont"></div>
+	
+	<h2>Translate</h2>
+	
+	
+	<div id="phrasenum" style="font-size:1.5em; font-weight:bold; margin-bottom: 0.5em; text-align:center;"></div>
+	<span>English:</span>
+	<div id="tsource" style="margin-bottom:0.5em"></div>
+	<span id="tlang">English:</span>
+	<input id="tword" type="text" value="Enter the text" style="width:100%;"></input>
+	
+	<button onclick="save()">Save</button> <br />
+	<button onclick="prev()">◀ Previous</button> <button onclick="next()">Next ▶</button>
+	<button onclick="fmi(true)">Find missing phrase</button>
+	
+</div>
+</body>
+</html>
