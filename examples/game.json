@@ -1,0 +1,320 @@
+{
+	"langs": [
+		{
+			"name": "English",
+			"code": "en",
+			"table": 0
+		},
+		{
+			"name": "Česky",
+			"code": "cs",
+			"table": 1
+		},
+		{
+			"name": "Dansk",
+			"code": "da",
+			"table": 2
+		},
+		{
+			"name": "Deutsch",
+			"code": "de",
+			"table": 3
+		},
+		{
+			"name": "Español",
+			"code": "es",
+			"table": 4
+		},
+		{
+			"name": "Suomi",
+			"code": "fi",
+			"table": 5
+		},
+		{
+			"name": "Français",
+			"code": "fr",
+			"table": 6
+		},
+		{
+			"name": "Hrvatski",
+			"code": "hr",
+			"table": 7
+		},
+		{
+			"name": "Nederlands",
+			"code": "nl",
+			"table": 8
+		},
+		{
+			"name": "Norsk",
+			"code": "no",
+			"table": 9
+		},
+		{
+			"name": "Polski",
+			"code": "pl",
+			"table": 10
+		},
+		{
+			"name": "Română",
+			"code": "ro",
+			"table": 11
+		},
+		{
+			"name": "Русский",
+			"code": "ru",
+			"table": 12
+		},
+		{
+			"name": "Slovenčina",
+			"code": "sk",
+			"table": 13
+		}
+	],
+	"tables": [
+		[
+			"How to",
+			"Play",
+			"Back",
+			"Continue",
+			
+			"How to use this app",
+			
+			"Choose an exercise",
+			"Continue to exercise",		
+			"This is a new note",		  
+			"Type on the keyboard or press the buttons.",
+			"Out of time",
+			"Well done",
+			"Number of mistakes",		  
+			"You achieved the badge", 
+
+			"Options",
+			"Enable sounds"
+		],
+		[
+			"Jak na to",
+			"Hrát",
+			"Zpět",
+			"Pokračovat",
+			
+			"Jak používat tuto aplikaci",
+			
+			"Zvolte cvičení",
+			"Pokračovat na cvičení",
+			"Toto je nová nota",
+			"Pište noty na klávesnici nebo tlačítky.",
+			"Čas vypršel",
+			"Skvělý výsledek",
+			"Počet chyb",
+			"Získal jste odznak",
+			
+			"Nastavení",
+			"Zapnout zvuky"
+		],
+		[
+			"Instruktioner",
+			"Spil",
+			"Tilbage",
+			"Fortsæt",
+			
+			"Hvordan bruges denne app",
+			
+			"Vælg en øvelse",
+			"Fortsæt til øvelse",		 
+			"Dette er en ny node",		   
+			"Tast på tastatur eller tryk på knapperne.",
+			"Tiden udløbet",
+			"Godt klaret",
+			"Antal fejl",		   
+			"Du har tjent et badge"
+		],
+		[
+			"So geht's",
+			"Spielen",
+			"Zurück",
+			"Weiter",
+			
+			"Anwendung",
+
+			"Wählen Sie eine Übung",
+			"Weiter mit der Übung ",     
+			"Dies ist eine neue Note",       
+			"Tippen Sie auf der Tastatur oder drücken Sie die Tasten.",
+			"Zait abgelaufen",
+			"Sehr gut",
+			"Anzahl der Fehler",       
+			"Sie haben diese Auszeichnung erreicht"
+		],
+		[
+			"Ayuda",
+			"Jugar",
+			"Volver",
+			"Continuar",
+
+			"Cómo usar esta aplicación",
+
+			"Elegir un ejercicio",
+			"Continuar ejercicio ",
+			"Nueva nota", 
+			"Escribe en el teclado o presiona el botón.",
+			"Se acabó el tiempo",
+			"Bien hecho",
+			"Número de errores", 
+			"Has conseguido el logro"
+		],
+		[
+			"Ohjeet",
+			"Aloita",
+			"Takaisin",
+			"Jatka",
+			
+			"Käyttöohjeet",
+
+			"Valitse harjoitus",
+			"Jatka harjoitusta",		 
+			"Tämä on uusi nuotti",		   
+			"Kirjoita näppäimistöllä tai paina nappeja.",
+			"Aika loppui",
+			"Hieno suoritus",
+			"Virheiden määrä",		   
+			"Sait mitalin"
+		],
+		[ 
+			"Comment", 
+			"Jouer",
+			"Tetour", 
+			"Continuer", 
+			
+			"Comment utiliser cette application", 
+
+			"Choisissez un exercise", 
+			"Continuer vers l’exercice", 
+			"Voici une nouvelle note", 
+			"Appuyez sur la touche du clavier ou le bouton.", 
+			"Fin du temps", 
+			"Bien joué", 
+			"Nombre d'erreur", 
+			"Vous avez gagner une récompenses"
+		],
+		[
+			"Upute",
+			"Igraj",
+			"Nazad",
+			"Nastavi",
+			
+			"Kako koristiti ovaj program",
+			
+			"Odaberite vježbu", 
+			"Nastavi do vježbe", 
+			"Nova nota", 
+			"Pišite na tipkovnici ili pritisnite botune.", 
+			"Vrijeme isteklo", 
+			"Bravo!", 
+			"Broj pogrešaka", 
+			"Osvojili ste bedž"
+		],
+		[
+			"Hulp", 
+			"Speel",
+			"Terug",
+			"Verder met spel",
+			
+			"Hoe deze app te gebruiken",
+			
+			"Kies een oefening",
+			"Ga verder met oefening",
+			"Dit is een nieuwe noot",
+			"Gebruik de toetsen op het toetsenbord.", 
+			"Tijd is om",
+			"Goed gedaan",
+			"Aantal fouten",
+			"Je hebt de badge vrijgespeeld"
+		],
+		[
+			"Hjelp",
+			"Spill", 
+			"Tilbake",
+			"Fortsett",
+			
+			"Hvordan bruke denne applikasjonen",
+			
+			"Velg en øvelse", 
+			"Fortsett å øve", 
+			"Dette er en ny note", 
+			"Skriv på tastaturet eller trykk på knappene.", 
+			"Tiden er ute", 
+			"Bra utført", 
+			"Antall feil", 
+			"Du har oppnådd merket"
+		],
+		[ 
+			"Zasady", 
+			"Graj", 
+			"Powrót", 
+			"Kontynuuj", 
+			
+			"Jak działa aplikacja", 
+
+			"Wybierz ćwiczenie", 
+			"Kontynuuj ćwiczenie", 
+			"Oto nowa nuta", 
+			"Wpisz nuty z klawiatury lub wciśnij właściwy przycisk.", 
+			"Koniec czasu", 
+			"Doskonale", 
+			"Ilość błędów", 
+			"Zdobyłeś odznakę"
+		],
+		[
+			"Instrucţiuni",		
+			"Începe Jocul",		
+			"Înapoi",
+			"Continuă",			
+			
+			"Cum folosești această aplicaţie",
+
+			"Alege un exerciţiu",
+			"Continuă să exersezi",		
+			"Asta este o notă nouă",	
+			"Tastează pe tastatură sau apasă butoanele.",
+			"Timpul s-a scurs",
+			"Bine făcut",				
+			"Numărul greșelilor",		
+			"Ai câștigat insigna"
+		],
+		[
+			"Как играть",
+			"Играть",
+			"Назад",
+			"Продолжить",
+			
+			"Как использовать эту программу",
+		
+			"Выбрать упражнение",
+			"Продолжить с упражнением",     
+			"Это новая нота",       
+			"Печатайте на клавиатуре или нажимайте кнопки.",
+			"Время истекло",
+			"Молодец",
+			"Количество ошибок",       
+			"Вы заработали значок"
+		],
+		[
+			"Ako na to",
+			"Hrať",
+			"Späť",
+			"Pokračovať",
+	  
+			"Ako používať túto aplikáciu",
+
+			"Zvoľte cvičenie",
+			"Pokračovať na cvičenie",
+			"Toto je nová nota",
+			"Píšte noty na klávesnici alebo s tlačítkami.",
+			"Čas vypršal",
+			"Skvelý výsledok",
+			"Počet chýb",
+			"Získali ste odznak"
+		]
+	]
+}

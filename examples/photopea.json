@@ -1,0 +1,896 @@
+{
+	"langs": [
+		{
+			"name": "English",
+			"code": "en",
+			"table": 0
+		},
+		{
+			"name": "Česky",
+			"code": "cs",
+			"table": 1
+		},
+		{
+			"name": "Español",
+			"code": "es",
+			"table": 2
+		},
+		{
+			"name": "Deutsch",
+			"code": "de",
+			"table": 3
+		},
+		{
+			"name": "Français",
+			"code": "fr",
+			"table": 4
+		},
+		{
+			"name": "Ελληνικά",
+			"code": "fr",
+			"table": 5
+		},
+		{
+			"name": "العربية",
+			"code": "ar",
+			"table": 6
+		},
+		{
+			"name": "Português",
+			"code": "pt",
+			"table": 7
+		},
+		{
+			"name": "Русский",
+			"code": "ru",
+			"table": 8
+		},
+		{
+			"name": "Українська",
+			"code": "uk",
+			"table": 9
+		},
+		{
+			"name": "עברית",
+			"code": "he",
+			"table": 10
+		},
+		{
+			"name": "Hrvatski",
+			"code": "hr",
+			"table": 11
+		},
+		{
+			"name": "Italiano",
+			"code": "it",
+			"table": 12
+		},
+		{
+			"name": "Română",
+			"code": "ro",
+			"table": 13
+		},
+		{
+			"name": "Nederlands",
+			"code": "nl",
+			"table": 14
+		},
+		{
+			"name": "Svenska",
+			"code": "sv",
+			"table": 15
+		},
+		{
+			"name": "Dansk",
+			"code": "da",
+			"table": 16
+		},
+		{
+			"name": "Suomi",
+			"code": "fi",
+			"table": 17
+		},
+		{
+			"name": "Slovenščina",
+			"code": "sl",
+			"table": 18
+		},
+		{
+			"name": "Türkçe",
+			"code": "tr",
+			"table": 19
+		},
+		{
+			"name": "Polski",
+			"code": "pl",
+			"table": 20
+		},
+		{
+			"name": "Bahasa Indonesia",
+			"code": "id",
+			"table": 21
+		},
+		{
+			"name": "简化字 中文",
+			"code": "zh",
+			"table": 22
+		},
+		{
+			"name": "正體字 中文",
+			"code": "zh",
+			"table": 23
+		},
+		{
+			"name": "ภาษาไทย",
+			"code": "th",
+			"table": 24
+		},
+		{
+			"name": "日本語",
+			"code": "ja",
+			"table": 25
+		},
+		{
+			"name": "한국어",
+			"code": "ko",
+			"table": 26
+		}
+	],
+	"tables": [
+		[
+			[
+				"File",
+				"Edit",
+				"Image",
+				"Layer",
+				"Folder",
+				"Select",
+				"Filter",
+				"View",
+				"Window",
+				"Language",
+				"Log In",
+				"Log Out"
+			],
+			[
+				"Open",
+				"Publish online (Imgur)",
+				"Save",
+				"Save as PSD"
+			],
+			[
+				"Step Forward",
+				"Step Backward",
+				"Clear",
+				"Fill"
+			],
+			"Adjustments",
+			[
+				"Brightness / Contrast",
+				"Levels",
+				"Curves",
+				"Exposure",
+				"Vibrance",
+				"Hue / Saturation",
+				"Color Balance",
+				"Black & White",
+				"Photo Filter",
+				"Channel Mixer",
+				"Color Lookup",
+				"Invert",
+				"Posterize",
+				"Threshold",
+				"Gradient Map",
+				"Selective Color"
+			],
+			[
+				"Cut",
+				"Copy",
+				"Paste",
+				"New",
+				"Delete",
+				"Enable",
+				"Disable"
+			],
+			[
+				"Duplicate Layer",
+				"New Adjustment Layer",
+				"Raster Mask",
+				"Vector Mask",
+				"Add (Show All)",
+				"Add (Hide All)",
+				"Clipping Mask",
+				"Convert to Smart Object",
+				"Rasterize",
+				"Group Layers",
+				"Merge Down",
+				"Merge Up",
+				"Merge Layers",
+				"New Layer",
+				"Enable Raster Mask",
+				"Disable Raster Mask",
+				"Enable Vector Mask",
+				"Disable Vector Mask",
+				"Enable Clipping Mask",
+				"Disable Clipping Mask",
+				"New Folder",
+				"Add Raster Mask",
+				"Delete Raster Mask",
+				"Add Vector Mask",
+				"Delete Vector Mask",
+				"Link Raster Mask",
+				"Unlink Raster Mask",
+				"Link Vector Mask",
+				"Unlink Vector Mask",
+				"Enable Layer Effects",
+				"Disable Layer Effects",
+				"Delete Layer",
+				"Layer Opacity Change",
+				"Blending Change",
+				"Rasterize Layer Style",
+				"Layer Order",
+				[
+					"Creating Smart Object",
+					"Updating Smart Object",
+					"Placing Smart Object"
+				],
+				"Name Change",
+				"Color Change",
+				"Edit Adjustment Layer"
+			],
+			[
+				"All",
+				"Deselect",
+				"Inverse",
+				"Modify",
+				"Expand",
+				"Contract",
+				"Feather",
+				"Move Selection"
+			],
+			[
+				"Zoom In",
+				"Zoom Out",
+				"Guides",
+				"Rulers"
+			],
+			[
+				"History",
+				"Layers",
+				"Properties",
+				"Brush",
+				"Character",
+				"Paragraph"
+			],
+			[
+				"Brush Tool",
+				"Clone Tool",
+				"Crop Tool",
+				"Eraser Tool",
+				"Ellipse Select",
+				"Eyedropper",
+				"Gradient Tool",
+				"Hand Tool",
+				"Type Tool",
+				"Lasso Select",
+				"Magnetic Lasso Select",
+				"Move Tool",
+				"Magic Wand",
+				"Paint Bucket Tool",
+				"Polygonal Lasso Select",
+				"Rectangle Select",
+				"Free Transform",
+				"Zoom Tool"
+			],
+			[
+				"Take a picture",
+				"Color Picker",
+				"Contour Editor",
+				"Canvas Size",
+				"Duplicate Into ...",
+				"Gradient Editor",
+				"Layer Style",
+				"New Project",
+				"Save for web",
+				"Warp"
+			],
+			[
+				"Opacity",
+				"Effects",
+				"Brightness",
+				"Contrast",
+				"Channel",
+				"Exposure",
+				"Offset",
+				"Gamma correction",
+				"Hue",
+				"Saturation",
+				"Lightness",
+				"Colorize",
+				"Range",
+				"Vibrance",
+				"Size",
+				"Angle",
+				"Roundness",
+				"Hardness",
+				"Spacing",
+				"Blend Mode",
+				"Sample Size",
+				"Contour",
+				"Style",
+				"Reverse",
+				"Tolerance",
+				"Contiguous",
+				"Fill",
+				"Use global angle",
+				"Distance",
+				"Spread",
+				"Noise",
+				"Knock out drop shadow",
+				"Technique",
+				"Direction",
+				"Depth",
+				"Soften",
+				"Mode",
+				"Gradient",
+				"Scale",
+				"Align with layer",
+				"Position",
+				"Width",
+				"Height",
+				"Destination",
+				"Type",
+				"Foreground",
+				"Background",
+				"Custom",
+				"Name",
+				"Create",
+				"Format",
+				"Keep Aspect Ratio",
+				"Quality",
+				"Duplicate",
+				"Move"
+			],
+			[
+				"Color",
+				[
+					"None",
+					"Red",
+					"Orange",
+					"Yellow",
+					"Green",
+					"Blue",
+					"Purple",
+					"Gray",
+					"White",
+					"Transparent"
+				]
+			],
+			[
+				"Drop Shadow",
+				"Inner Shadow",
+				"Outer Glow",
+				"Inner Glow",
+				"Bevel and Emboss",
+				"Color Overlay",
+				"Gradient Overlay",
+				"Pattern Overlay",
+				"Satin",
+				"Stroke",
+				"Blending Options"
+			],
+			[
+				"Tip Shape",
+				"Tip Dynamics",
+				"Scatter",
+				"Color Dynamics",
+				[
+					"Size Jitter",
+					"Minimal Diameter",
+					"Angle Jitter",
+					"Roundness Jitter",
+					"Minimal Roundness"
+				],
+				[
+					"Position Jitter",
+					"Count",
+					"Count Jitter"
+				],
+				[
+					"Foreground/Background Jitter",
+					"Hue Jitter",
+					"Saturation Jitter",
+					"Brightness Jitter"
+				],
+				[
+					"Select clone source by holding Alt and clicking on the image."
+				]
+			],
+			[
+				"Leading",
+				"Tracking",
+				"Baseline shift"
+			],
+			[
+				"Total Content",
+				"Current Layer",
+				"Selection"
+			],
+			[
+				"Replace",
+				"Union",
+				"Difference",
+				"Intersection",
+				"XOR"
+			],
+			[
+				[
+					"Linear",
+					"Radial",
+					"Angle",
+					"Reflected",
+					"Diamond"
+				],
+				[
+					"Softer",
+					"Precise"
+				],
+				[
+					"Outer Bevel",
+					"Inner Bevel",
+					"Emboss",
+					"Pillow Emboss",
+					"Stroke Emboss"
+				],
+				[
+					"Smooth",
+					"Chisel Hard",
+					"Chisel Soft"
+				],
+				[
+					"Up",
+					"Down"
+				],
+				[
+					"Outside",
+					"Center",
+					"Inside"
+				]
+			],
+			[
+				"Choose the object under the cursor",
+				"Transformation controls",
+				"Pixel to Pixel",
+				"Fit The Area"
+			],
+			[
+				"Take a picture into",
+				"Current Project",
+				"New Project",
+				"Resolution",
+				"Added into the current project.",
+				"A new project was created.",
+				"Access to the camera was denied."
+			],
+			[
+				"Orientation",
+				"Bend",
+				"Horizontal Distortion",
+				"Vertical Distortion",
+				[
+					"Horizontal",
+					"Vertical"
+				],
+				[
+					"None",
+					"Arc",
+					"Arc Lower",
+					"Arc Upper",
+					"Arch",
+					"Bulge",
+					"Shell Lower",
+					"Shell Upper",
+					"Flag",
+					"Wave",
+					"Fish",
+					"Rise",
+					"Fish Eye",
+					"Inflate",
+					"Squeeze",
+					"Twist"
+				],
+				[
+					"Font",
+					"is not available",
+					"Will be rendered using"
+				]
+			],
+			[
+				"loaded",
+				"added",
+				"Move Guide",
+				"Delete Guide",
+				"Add Guide"
+			]
+		],
+		[
+			[
+				"Soubor",
+				"Úpravy",
+				"Obraz",
+				"Vrstva",
+				"Složka",
+				"Výběr",
+				"Filtr",
+				"Zobrazení",
+				"Okna",
+				"Jazyk",
+				"Přihlášení",
+				"Odhlášení"
+			],
+			[
+				"Otevřít",
+				"Zveřejnit online (Imgur)",
+				"Uložit",
+				"Uložit jako PSD"
+			],
+			[
+				"Krok dopředu",
+				"Krok zpět",
+				"Vyčistit",
+				"Vyplnit"
+			],
+			"Úpravy",
+			[
+				"Jas / Kontrast",
+				"Úrovně",
+				"Křivky",
+				"Expozice",
+				"Živost",
+				"Odstín / Sytost",
+				"Vyvážení barev",
+				"Černá & Bílá",
+				"Fotografický filtr",
+				"Míchání kanálů",
+				"Vyhledání Barev",
+				"Invertovat",
+				"Posterizovat",
+				"Práh",
+				"Mapa na přechod",
+				"Selektivní barva"
+			],
+			[
+				"Vyjmout",
+				"Kopírovat",
+				"Vložit",
+				"Nový",
+				"Smazat",
+				"Zapnout",
+				"Vypnout"
+			],
+			[
+				"Duplikovat vrstvu",
+				"Nová vrstva úprav",
+				"Rastrová maska",
+				"Vektorová maska",
+				"Přidat (zobrazit vše)",
+				"Přidat (skrýt vše)",
+				"Ořezová maska",
+				"Převést na Smart Object",
+				"Rastrovat",
+				"Přidat do složky",
+				"Spojit dolů",
+				"Spojit nahoru",
+				"Spojit vrstvy",
+				"Nová vrstva",
+				"Zapnout rastrovou masku",
+				"Vypnout rastrovou masku",
+				"Zapnout vektorovou masku",
+				"Vypnout vektorovou masku",
+				"Zapnout ořezovou masku",
+				"Vypnout ořezovou masku",
+				"Nová složka",
+				"Přidat rastrovou masku",
+				"Smazat rastrovou masku",
+				"Přidat vektorovou masku",
+				"Smazat vektorovou masku",
+				"Svázat rastrovou masku",
+				"Odvázat rastrovou masku",
+				"Svázat vektorovou masku",
+				"Odvázat vektorovou masku",
+				"Zapnout styly vrstvy",
+				"Vypnout styly vrstvy",
+				"Smazat vrstvu",
+				"Změna průhlednosti vrstvy",
+				"Změna režimu prlonutí",
+				"Rastrovat styl vrstvy",
+				"Pořadí vrstev",
+				[
+					"Vytvoření Smart Object",
+					"Aktualizace Smart Object",
+					"Vložení Smart Object"
+				],
+				"Změna názvu",
+				"Změna barvy",
+				"Změna vrstvy úprav"
+			],
+			[
+				"Vše",
+				"Odznačit",
+				"Invertovat",
+				"Upravit",
+				"Rozšířit",
+				"Zúžit",
+				"Změkčit okraj",
+				"Posun výběru"
+			],
+			[
+				"Přiblížit",
+				"Oddálit",
+				"Vodítka",
+				"Pravítka"
+			],
+			[
+				"Historie",
+				"Vrstvy",
+				"Vlastnosti",
+				"Štětec",
+				"Znak",
+				"Odstavec"
+			],
+			[
+				"Štětec",
+				"Klonovací razítko",
+				"Ořez",
+				"Guma",
+				"Eliptický výběr",
+				"Kapátko",
+				"Přechod",
+				"Ručička",
+				"Vodorovný text",
+				"Laso",
+				"Magnetické laso",
+				"Přesun",
+				"Kouzelná hůlka",
+				"Kyblík barvy",
+				"Mnohoúhelníkové laso",
+				"Obdélníkový výběr",
+				"Volná transformace",
+				"Lupa"
+			],
+			[
+				"Vyfotit",
+				"Výběr barvy",
+				"Editor kontur",
+				"Velikost plátna",
+				"Duplikovat do ...",
+				"Editor přechodu",
+				"Styl vrstvy",
+				"Nový projekt",
+				"Uložit pro web",
+				"Pokřivení"
+			],
+			[
+				"Krytí",
+				"Efekty",
+				"Jas",
+				"Kontrast",
+				"Kanál",
+				"Expozice",
+				"Posun",
+				"Gama korekce",
+				"Odstín",
+				"Sytost",
+				"Světlost",
+				"Kolorizovat",
+				"Rozsah",
+				"Živost",
+				"Velikost",
+				"Úhel",
+				"Zaoblení",
+				"Tvrdost",
+				"Mezery",
+				"Režim prolnutí",
+				"Velikost vzorku",
+				"Kontura",
+				"Styl",
+				"Otočit",
+				"Tolerance",
+				"Souvislé",
+				"Výplň",
+				"Použít globální úhel",
+				"Vzdálenost",
+				"Rozšíření",
+				"Šum",
+				"Vyseknout vržený stín",
+				"Metoda",
+				"Směr",
+				"Hloubka",
+				"Změkčit",
+				"Režim",
+				"Přechod",
+				"Velikost",
+				"Zarovnat s vrstvou",
+				"Poloha",
+				"Šířka",
+				"Výška",
+				"Cíl",
+				"Typ",
+				"Popředí",
+				"Pozadí",
+				"Vlastní",
+				"Název",
+				"Vytvořit",
+				"Formát",
+				"Zachovat poměr stran",
+				"Kvalita",
+				"Duplikovat",
+				"Přesun"
+			],
+			[
+				"Barva",
+				[
+					"Žádná",
+					"Červená",
+					"Oranžová",
+					"Žlutá",
+					"Zelená",
+					"Modrá",
+					"Fialová",
+					"Šedá",
+					"Bílá",
+					"Průhledná"
+				]
+			],
+			[
+				"Vržený stín",
+				"Vnitřní stín",
+				"Vnější záře",
+				"Vnitřní záře",
+				"Úkos a reliéf",
+				"Překrytí barvou",
+				"Překrytí přechodem",
+				"Překrytí vzorkem",
+				"Satén",
+				"Vytažení",
+				"Možnosti prolnutí"
+			],
+			[
+				"Tvar špičky",
+				"Dynamika špičky",
+				"Rozptyl",
+				"Dynamika barvy",
+				[
+					"Kolísání velikosti",
+					"Minimální průměr",
+					"Kolísání úhlu",
+					"Kolísání zaoblení",
+					"Minimální zaoblení"
+				],
+				[
+					"Rozptyl polohy",
+					"Počet",
+					"Kolísání počtu"
+				],
+				[
+					"Kolísání popředí/pozadí",
+					"Kolísání odstínu",
+					"Kolísání sytosti",
+					"Kolísání jasu"
+				],
+				[
+					"Zvolte zdroj klonování přidržením Alt a kliknutím do obrazu."
+				]
+			],
+			[
+				"Proklad",
+				"Prostrkání",
+				"Posun účaří"
+			],
+			[
+				"Veškerý obsah",
+				"Aktuální vrstva",
+				"Výběr"
+			],
+			[
+				"Nahradit",
+				"Spojit",
+				"Odebrat",
+				"Průnik",
+				"XOR"
+			],
+			[
+				[
+					"Lineární",
+					"Kruhový",
+					"Úhlový",
+					"Zrcadlený",
+					"Diamant"
+				],
+				[
+					"Měkčí",
+					"Přesná"
+				],
+				[
+					"Vnější úkos",
+					"Vnitřní úkos",
+					"Reliéf",
+					"Poduškový reliéf",
+					"Reliéfní tah"
+				],
+				[
+					"Vyhladit",
+					"Tvrdá",
+					"Měkká"
+				],
+				[
+					"Nahoru",
+					"Dolů"
+				],
+				[
+					"Vně",
+					"Na střed",
+					"Uvnitř"
+				]
+			],
+			[
+				"Vybrat objekt pod kurzorem",
+				"Ovládací prvky transformace",
+				"Skutečné pixely",
+				"Přizpůsobit obrazovce"
+			],
+			[
+				"Vyfotit do",
+				"Současný projekt",
+				"Nový projekt",
+				"Rozlišení",
+				"Přidáno do současného projektu.",
+				"Nový projekt vytvořen.",
+				"Nepovolen přístup ke kameře."
+			],
+			[
+				"Orientace",
+				"Prohnutí",
+				"Vodorovná deformace",
+				"Svislá deformace",
+				[
+					"Vodorovně",
+					"Svisle"
+				],
+				[
+					"Žádné",
+					"Oblouk",
+					"Dolní oblouk",
+					"Horní oblouk",
+					"Klenba",
+					"Vyboulení",
+					"Mušle dolů",
+					"Mušle nahoru",
+					"Vlajka",
+					"Vlna",
+					"Ryba",
+					"Vyvýšení",
+					"Rybí oko",
+					"Nafouknutí",
+					"Zmáčknutí",
+					"Zkroucení"
+				],
+				[
+					"Font",
+					"není dostupný",
+					"Pro vykreslení se použije"
+				]
+			],
+			[
+				"načten",
+				"přidány",
+				"Posun vodítka",
+				"Smazání vodítka",
+				"Přidání vodítka"
+			]
+		],
+		[],[],[],[],[],[],[],[],[],[],
+		[],[],[],[],[],[],[],[],[],[],
+		[],[],[],[]
+	]
+}
