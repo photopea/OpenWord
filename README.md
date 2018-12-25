@@ -15,7 +15,7 @@ The repository also contains a little web editor, which allows collaborative wor
   ],
   "tables": [
     [
-      "Welcome",
+      "Welcome::Shown at the beginning to every user",
       "Loading",
       ["Black", "Red", "Blue"],
       "Exit"
@@ -35,7 +35,15 @@ The repository also contains a little web editor, which allows collaborative wor
 * `code` is the ISO 639-1 code of the language
 * `table` is the index of the table, which contains phrases for that language
  
-`tables` is an array of tables. Each table contains phrases for a specific language. A table has a tree-like structure, that can be defined recursively: a table is an array of nodes; a node is either `null`, a string or an array of nodes.
+`tables` is an array of Tables (Lists). Each Table contains phrases for a specific language. A Phrase (String) can have two parts, separated by `::`. The first part is the actual phrase to translate, and the second part is a "comment" (e.g. a message, that will be shown only to the translator).
+
+A List has a tree-like structure, that can be defined recursively: a table is an array of nodes; a node is either `null`, a string or an array of nodes.
+
+```
+List   :  [  Node, Node, Node, ...  ]
+Node   :  Phrase  |  null  |  List
+Phrase :  "Text"  |  "Text::Comment"
+```
 
 We can refer to each phrase in a table using a path: an array of indices of nested arrays containing specific string (counting from 0). In the previous example, the word "Loading" has a path `[1]`. The word "Blue" has a path `[2,2]`. You can use paths to refer to phrases from your software, without refering to specific table (specific language of the phrase).
 
@@ -43,7 +51,7 @@ When multiple tables contain phrases for a specific path, all these phrases must
 
 ## Best practice
 
-It is convenient to have a complete localization in one of the tables (let's put it into the first table), while other tables may contain partial translations. Such complete table can be used as a source for translators. It also can be used as the fallback, when the localized version of the phrase is not available.
+It is convenient to have a complete localization in the first table (e.g. English), while other tables will contain partial translations. Such complete table can be used as a source for translators. It also can be used as the fallback, when the localized version of the phrase is not available.
 
 You can start using OpenWord as soon as you start creating your software. Just put all the strings into a JSON OpenWord file with a single table (for a single language). You can add translations at any time in the future (or ask your users to translate it).
 
@@ -53,9 +61,7 @@ What about creating a huge OpenWord file, the ultimate database for localization
 
 ## String identifiers for each prhase
 
-A table could be an object containing key-value pairs. These keys would be the same in all tables. We would refer to the string "Blue" with a path `clrs.blue` in all tables. You could easily add the new phrase between "Welcome" and "Loading", without changing paths to other phrases (i.e. without rewriting your software), which is not possible in the current format.
-
-Coming up with accurate and elegant key names requires a lot of creative thinking. For large localization files, an author may run out of good ideas for a key name, or simply get tired. It may lead to inventing too long keys, or just using the keys "word26", "word27", "word28" etc. That's why OpenWord identifies phrases by numbers.
+The "path" of each phrase consists of numbers instead of Strings, e.g. `[2,1]` instead of `"colors.red"`. We think, that in practice, you would be too lazy to invent accurate string identifiers for each phrase / group of phrases.
 
 # Web Editor
 
