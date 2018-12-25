@@ -3,6 +3,8 @@
 		<meta charset="utf-8" />
 		<title>Translate Photopea</title>
 		
+		<script src="UTIL.js"></script>
+		
 		<style type="text/css">
 			body {
 				font-family:sans-serif;
@@ -52,6 +54,7 @@
 			#tsource, #tword {
 				font-size: 1.5em;
 			}
+			#tcomment {  margin-left: 1em; opacity:0.6;  font-size:1.0em;  border:2px solid #aaa;  padding:3px;  }
 			button {
 				font-size: 1.4em;
 				margin: 0.5em 0.5em 0 0;
@@ -68,6 +71,7 @@
 		var wcnt;			// counts of translated words (corresponding to tables)
 		var uptime = 10000;
 		var upTO = null;	// update TimeOut 
+		var fInput, ftext="", finds;
 		//*
 		function getParameterByName(name, url) {
 			if (!url) url = window.location.href;
@@ -89,9 +93,17 @@
 		}
 		
 		function go() {  
+			fInput = document.getElementById("fInput");
+			fInput.addEventListener("input", findText, false);
 			var cnv = document.getElementById("cnv");
 			cnv.addEventListener("click", cnvClick);
 			loadFile();
+		}
+		function findText(e) {
+			ftext = fInput.value;
+			fileLoaded();
+			if(finds.length!=0) cword = finds[0];
+			fileLoaded();
 		}
 		function loadFile() {  load("versions/file.json"+"?rnd="+Math.random(), fileLoaded);  }
 		function fileLoaded(str)
@@ -116,7 +128,7 @@
 			wcnt = [];
 			plists = [[]];
 			var mainpl = plists[0];
-			getPList(file.tables[0], mainpl, []);
+			UTIL.getPList(file.tables[0], mainpl, []);
 			wcnt.push(mainpl.length);
 			
 			for(var i=1; i<file.tables.length; i++)
@@ -126,7 +138,7 @@
 				for(var j=0; j<mainpl.length; j++)
 				{
 					var mainw = mainpl[j];
-					var wrd = getWord(mainw.path, file.tables[i]);
+					var wrd = UTIL.getWord(mainw.path, file.tables[i]);
 					pl.push( {str:wrd, path:mainw.path} );
 					if(wrd!=null) cnt++;
 				}
@@ -144,7 +156,6 @@
 			}
 			langs.sort(function(a,b) {  return b.frac-a.frac;  });
 			
-		
 			var clang;
 			for(var i=0; i<langs.length; i++)
 			{
@@ -165,19 +176,27 @@
 				el.addEventListener("click", langClick, false);
 			}
 			
+			var ewds = plists[0];  finds=[];
+			for(var i=0; i<ewds.length; i++) 
+				if(ewds[i].str.split("::")[0].toLowerCase().indexOf(ftext.toLowerCase())!=-1)  finds.push(i);
+			
 			updateGraph(plists[clang.table], cword);
 			
 			var phnum = document.getElementById("phrasenum");
 			phnum.innerText = "Phrase "+ (cword+1) + " / " + mainpl.length;
 			
 			var tsource = document.getElementById("tsource");
-			tsource.innerText = plists[0][cword].str;
+			var tcomment = document.getElementById("tcomment");
+			var epts = plists[0][cword].str.split("::");
+			tsource.innerText = epts[0];
+			tcomment.innerText = epts.length==1 ? "":"Hint: "+epts[1];
+			tcomment.style.display = epts.length==1 ? "none":"";
 			
 			var tlang = document.getElementById("tlang");
 			tlang.innerText = clang.name+":";
 			
 			var tword = document.getElementById("tword");
-			tword.value = plists[lang][cword].str == null ? "" : plists[lang][cword].str;
+			tword.value = plists[lang][cword].str == null ? "" : plists[lang][cword].str.split("::")[0];
 			
 			document.body.setAttribute("style", "opacity:1.0;");
 		}
@@ -188,21 +207,29 @@
 			var ctx = cnv.getContext("2d");
 			ctx.clearRect(0,0,cnv.width,cnv.height);
 			
+			var y = 8;
+			
 			var rw = (2000 / words.length);
 						
-			ctx.fillStyle = "#ee0000";  ctx.fillRect(0,0,2000,20);
+			ctx.fillStyle = "#ee0000";  ctx.fillRect(0,y,2000,20);
 			
-			ctx.fillStyle = "#00dd00";
-			var start = -1;
+			
+			var start = -1, estrt = -1;
 			for(var i=0; i<words.length; i++)
 			{
-				if(words[i].str!=null && start==-1) start = i;
-				if(words[i].str==null && start!=-1) { ctx.fillRect(start*rw, 0, (i-start)*rw, 20);  start = -1; }
+				var gotE = finds.indexOf(i)!=-1;//ewds[i].str.split("::")[0].toLowerCase().indexOf(ftext.toLowerCase())!=-1;
+				if( gotE && estrt==-1) estrt = i;
+				if(!gotE && estrt!=-1) {  ctx.fillStyle = "#333333";  ctx.fillRect(estrt*rw, 0, (i-estrt)*rw,  5);  estrt = -1; }
+				
+				var gotS = words[i].str!=null;
+				if( gotS && start==-1) start = i;
+				if(!gotS && start!=-1) {  ctx.fillStyle = "#00dd00";  ctx.fillRect(start*rw, y, (i-start)*rw, 20);  start = -1; }
 			}
-			if(start!=-1) ctx.fillRect(start*rw, 0, (words.length-start)*rw, 20);
+			if(estrt!=-1) {  ctx.fillStyle = "#333333";  ctx.fillRect(estrt*rw, 0, (words.length-estrt)*rw,  5);  }
+			if(start!=-1) {  ctx.fillStyle = "#00dd00";  ctx.fillRect(start*rw, y, (words.length-start)*rw, 20);  }
 			
 			var curx = cword*rw+rw/2
-			ctx.fillStyle = "rgba(0,0,0,1)"; ctx.beginPath(); ctx.moveTo(curx, 20); ctx.lineTo(curx+10, cnv.height);  ctx.lineTo(curx-10, cnv.height);  ctx.fill();
+			ctx.fillStyle = "rgba(0,0,0,1)"; ctx.beginPath(); ctx.moveTo(curx, y+20); ctx.lineTo(curx+10, cnv.height);  ctx.lineTo(curx-10, cnv.height);  ctx.fill();
 		}
 		
 		function langClick(e)
@@ -211,46 +238,8 @@
 			fileLoaded();
 		}
 		
-		function getPList(tab, list, cp)
-		{
-			if(typeof tab == "string") {  list.push({ str:tab, path:cp.slice(0) });  return; }
-			for(var i=0; i<tab.length; i++)
-			{
-				cp.push(i);
-				getPList(tab[i], list, cp);
-				cp.pop();
-			}
-		}
-		function getWord(path, tab)
-		{
-			for(var i=0; i<path.length; i++)
-			{
-				tab  = tab[path[i]];
-				if(tab==null) return null;
-			}
-			return tab;
-		}
-		function setWord(w, path, tab)
-		{
-			for(var i=0; i<path.length-1; i++)  tab  = tab[path[i]];
-			return tab[path[path.length-1]] = w;
-		}
-		function tryClear(tab)
-		{
-			if(tab==null) return null;
-			if(typeof tab == "string") return tab;
-			
-			for(var i=tab.length-1; i>=0; i--)
-			{
-				var nval = tryClear(tab[i]);
-				if(nval==null) tab.pop();
-				else return tab;
-			}
-			return null;
-		}
-		
-		function prev() {  cword = (cword-1+plists[0].length)%plists[0].length;  fileLoaded();  }
-		function next() {  cword = (cword+1+plists[0].length)%plists[0].length;  fileLoaded();  }
+		function prev() {  var fl=finds.length, fi=finds.indexOf(cword);  if(fi==-1)fi=0;  if(fl!=0) cword = finds[(fi-1+fl)%fl];  fileLoaded();  }
+		function next() {  var fl=finds.length, fi=finds.indexOf(cword);  if(fi==-1)fi=0;  if(fl!=0) cword = finds[(fi+1+fl)%fl];  fileLoaded();  }
 		function save() {
 			if(lang==0) {  alert("You can not edit this language.");  return;  }
 			var nword = document.getElementById("tword").value.trim();
@@ -260,13 +249,14 @@
 			
 			var nfile = {};
 			nfile.langs = file.langs;
+			for(var i=0; i<nfile.langs.length; i++) if(nfile.langs[i].table!=i) {  alert("An error occured. Please, reload the page.");  return;  }
 			nfile.tables = [];
 			for(var i=0; i<file.tables.length; i++)
 			{
 				var ntab = JSON.parse(JSON.stringify(file.tables[0]));  
 				for(var j=0; j<plists[0].length; j++)  
-					setWord(plists[i][j].str,  plists[i][j].path, ntab)
-				var nntab = tryClear(ntab);
+					UTIL.setWord(plists[i][j].str,  plists[i][j].path, ntab)
+				var nntab = UTIL.tryClear(ntab);
 				nfile.tables.push(ntab);
 			}
 			
@@ -302,8 +292,15 @@
 		{
 			var rct = e.currentTarget.getBoundingClientRect();
 			var x = (e.clientX - rct.left) / rct.width ;
+			var y = (e.clientY - rct.top ) / rct.height;
+			var tind = Math.floor(x * plists[0].length);
 			
-			cword = Math.floor(x * plists[0].length);
+			if(false)//y<0.3 && finds.length!=0) 
+			{
+				cword = finds[0];
+				for(var i=0; i<finds.length; i++) if(Math.abs(finds[i]-tind)<Math.abs(cword-tind)) cword = finds[i];
+			}
+			else cword = tind;
 			fileLoaded();
 		}
 		
@@ -321,12 +318,15 @@
 				lng.table = out.tables.length-1;
 			}
 			
-			var str = "var LNG = " + JSON.stringify(out, null, "\t");
+			var pref = "", fname = "translation.json";
+			//pref = "var LNG = ";  fname = "LNG2.js";
+			
+			var str = pref + JSON.stringify(out, null, "\t");
 			var a = document.createElement( "a" );
 			var blob = new Blob([str]);
 			var url = window.URL.createObjectURL( blob );
 			a.href = url;
-			a.download = "LNG2.js";
+			a.download = fname;
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
@@ -345,15 +345,16 @@
 	
 	<h2>Translate <span style="font-size:0.6em">(keep the phrase empty, if you are not sure)</span></h2>
 	
-	<canvas id="cnv" width="2000" height="35" style="width:100%; cursor:pointer;"></canvas>
+	<canvas id="cnv" width="2000" height="42" style="width:100%; cursor:pointer;"></canvas>
 	
 	<div style="margin-bottom:1em;">
 		<span id="phrasenum" style="font-size:1.5em; font-weight:bold; display:inline-block; width:10em; padding-left:0.0em;"></span>
 		<button onclick="prev()">&lt;&lt;&lt;</button> <button onclick="next()">&gt;&gt;&gt;</button>
-		<button onclick="fmi(true)">Find missing phrase</button>
+		<button onclick="fmi(true)">Find Missing Phrase</button>
+		Find: <input id="fInput" type="text"  style=""></input>
 	</div>
 	<span>English:</span>
-	<div id="tsource" style="margin-bottom:0.5em"></div>
+	<div style="margin-bottom:0.5em"><span id="tsource"></span><span id="tcomment"></span></div>
 	<span id="tlang">English:</span>
 	<input id="tword" type="text"  style="width:100%;"></input>
 	
