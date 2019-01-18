@@ -59,7 +59,7 @@ It is nice to share your OpenWord translations with others. Different software r
 
 What about creating a huge OpenWord file, the ultimate database for localization? No.
 
-## String identifiers for each prhase
+## String identifiers for each phrase
 
 The "path" of each phrase consists of numbers instead of Strings, e.g. `[2,1]` instead of `"colors.red"`. We think, that in practice, you would be too lazy to invent accurate string identifiers for each phrase / group of phrases.
 
